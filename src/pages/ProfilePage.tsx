@@ -23,7 +23,7 @@ interface ProfilePageProps {
   onLogout: () => void;
 }
 
-export function ProfilePage({ userEmail, onLogout }: ProfilePageProps) {
+export default function ProfilePage({ userEmail, onLogout }: ProfilePageProps) {
   const [isEditing, setIsEditing] = useState(false);
   const [showOldPassword, setShowOldPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);

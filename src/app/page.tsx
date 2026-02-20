@@ -1,13 +1,10 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import { Sidebar } from '@/components/Sidebar';
-import { ItemsPage } from '@/pages/ItemsPage';
-// import { CategoriesPage } from './pages/CategoriesPage';
-// import { FeeSetupsPage } from './pages/FeeSetupsPage';
-// import { SupportPage } from './pages/SupportPage';
-import { ProfilePage } from '@/pages/ProfilePage';
-import { LoginPage } from '@/pages/LoginPage';
-import { KhataPage } from '@/pages/KhataPage';
+import  ItemsPage  from '@/pages/ItemsPage';
+import  ProfilePage  from '@/pages/ProfilePage';
+import  LoginPage  from '@/pages/LoginPage';
+import  KhataPage  from '@/pages/KhataPage';
 
 export default function App() {
   const [activePage, setActivePage] = useState('Khata');
@@ -123,12 +120,6 @@ export default function App() {
     switch (activePage) {
       case 'Items':
         return <ItemsPage />;
-      case 'Categories':
-        // return <CategoriesPage />;
-      case 'Fee Setups':
-        // return <FeeSetupsPage />;
-      case 'Support':
-        // return <SupportPage />;
       case 'Profile':
         return <ProfilePage userEmail={userEmail} onLogout={handleLogout} />;
       case 'Khata':

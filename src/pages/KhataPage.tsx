@@ -10,9 +10,9 @@ import {
   AlertTriangle,
   FileDown
 } from 'lucide-react';
-import { FullscreenToggle } from '../components/FullscreenToggle';
-import { DeleteConfirmModal } from '../components/DeleteConfirmModal';
-import { Checkbox } from '../components/ui/checkbox';
+import { FullscreenToggle } from '@/components/FullscreenToggle';
+import { DeleteConfirmModal } from '@/components/DeleteConfirmModal';
+import { Checkbox } from '@/components/ui/checkbox';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 
@@ -31,7 +31,7 @@ interface Transaction {
   tafseel?: string;
 }
 
-export function KhataPage() {
+export default function KhataPage() {
   // Load data from localStorage on mount
   const [customers, setCustomers] = useState<Customer[]>(() => {
     const saved = localStorage.getItem('khata_customers');

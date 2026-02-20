@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Search, Plus, Edit, Trash2, X, ChevronDown } from 'lucide-react';
-import { FullscreenToggle } from '../components/FullscreenToggle';
-import { DeleteConfirmModal } from '../components/DeleteConfirmModal';
-import { Checkbox } from '../components/ui/checkbox';
+import { FullscreenToggle } from '@/components/FullscreenToggle';
+import { DeleteConfirmModal } from '@/components/DeleteConfirmModal';
+import { Checkbox } from '@/components/ui/checkbox';
 
 interface Item {
   id: number;
@@ -11,7 +11,7 @@ interface Item {
   productStatus: 'Available' | 'Sold';
 }
 
-export function ItemsPage() {
+export default function ItemsPage() {
   const [items, setItems] = useState<Item[]>([
     { id: 1, itemName: 'iPhone 14 Pro', price: 450000, productStatus: 'Available' },
     { id: 2, itemName: 'Samsung Galaxy S23', price: 380000, productStatus: 'Sold' },
