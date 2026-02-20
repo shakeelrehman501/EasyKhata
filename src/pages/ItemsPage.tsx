@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Search, Plus, Edit, Trash2, X, ChevronDown } from 'lucide-react';
 import { FullscreenToggle } from '@/components/FullscreenToggle';
