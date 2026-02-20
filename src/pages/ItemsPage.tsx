@@ -144,9 +144,9 @@ export function ItemsPage() {
         </div>
 
         {/* Controls */}
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 lg:gap-4">
+        <div className="flex items-center gap-2 lg:gap-3">
           {/* Search */}
-          <div className="relative flex-1 max-w-full sm:max-w-md">
+          <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500" size={18} />
             <input
               type="text"
@@ -158,26 +158,25 @@ export function ItemsPage() {
           </div>
 
           {/* Actions */}
-          <div className="flex gap-2 lg:gap-3">
-            {selectedItems.length > 0 && (
-              <button
-                onClick={handleBulkDelete}
-                className="px-3 lg:px-4 py-2.5 bg-red-600 dark:bg-red-600 text-white rounded-lg font-medium hover:bg-red-700 dark:hover:bg-red-700 transition-colors flex items-center gap-2 text-sm"
-              >
-                <Trash2 size={16} />
-                <span className="hidden sm:inline">Delete ({selectedItems.length})</span>
-                <span className="sm:hidden">({selectedItems.length})</span>
-              </button>
-            )}
+          {selectedItems.length > 0 && (
             <button
-              onClick={() => setIsAddModalOpen(true)}
-              className="px-4 lg:px-6 py-2.5 bg-blue-600 dark:bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 dark:hover:bg-blue-700 transition-colors flex items-center gap-2 shadow-lg shadow-blue-200 dark:shadow-blue-900/30 text-sm lg:text-base"
+              onClick={handleBulkDelete}
+              className="px-3 lg:px-4 py-2.5 bg-red-600 dark:bg-red-600 text-white rounded-lg font-medium hover:bg-red-700 dark:hover:bg-red-700 transition-colors flex items-center gap-2 text-sm shrink-0"
             >
-              <Plus size={18} />
-              <span className="hidden sm:inline">Add New Item</span>
-              <span className="sm:hidden">Add</span>
+              <Trash2 size={16} />
+              <span className="hidden sm:inline">Delete ({selectedItems.length})</span>
+              <span className="sm:hidden">({selectedItems.length})</span>
             </button>
-          </div>
+          )}
+          
+          <button
+            onClick={() => setIsAddModalOpen(true)}
+            className="px-3 lg:px-6 py-2.5 bg-blue-600 dark:bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 dark:hover:bg-blue-700 transition-colors flex items-center gap-2 shadow-lg shadow-blue-200 dark:shadow-blue-900/30 text-sm lg:text-base shrink-0"
+          >
+            <Plus size={18} />
+            <span className="hidden sm:inline">Add New Item</span>
+            <span className="sm:hidden">Add</span>
+          </button>
         </div>
       </header>
 

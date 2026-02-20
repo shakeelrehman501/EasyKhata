@@ -10,12 +10,11 @@ import {
   AlertTriangle,
   FileDown
 } from 'lucide-react';
-import { FullscreenToggle } from '@/components/FullscreenToggle';
-import { DeleteConfirmModal } from '@/components/DeleteConfirmModal';
-import { Checkbox } from '@/components/ui/checkbox';
+import { FullscreenToggle } from '../components/FullscreenToggle';
+import { DeleteConfirmModal } from '../components/DeleteConfirmModal';
+import { Checkbox } from '../components/ui/checkbox';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
-
 
 interface Customer {
   id: number;
@@ -272,7 +271,7 @@ export function KhataPage() {
     
     return (
       <div className="flex-1 flex flex-col min-w-0 overflow-hidden bg-slate-50/50 dark:bg-[#0d0d0d] pb-16 lg:pb-0">
-        <div className="px-4 lg:px-8 py-4 lg:py-8 ">
+        <div className="px-4 lg:px-8 py-4 lg:py-8">
           {/* Header with back button and toggle on right */}
           <div className="flex items-center justify-between mb-6 lg:mb-8">
             <div className="flex items-center gap-3 lg:gap-4 flex-1 min-w-0">
@@ -292,7 +291,7 @@ export function KhataPage() {
           </div>
 
           {/* Summary and Action Buttons */}
-          <div className="flex flex-col gap-4 mb-6 ">
+          <div className="flex flex-col gap-4 mb-6">
             {/* Summary - Show only one based on net balance */}
             {showBalanceClear ? (
               <div className="inline-block w-fit px-4 lg:px-6 py-3 lg:py-4 rounded-xl bg-slate-100/50 dark:bg-slate-800/50">
@@ -391,7 +390,7 @@ export function KhataPage() {
               </div>
 
               {/* Mobile Card View */}
-              <div className="lg:hidden space-y-3  ">
+              <div className="lg:hidden space-y-3">
                 {transactions.map((transaction) => (
                   <div
                     key={transaction.id}
@@ -543,46 +542,46 @@ export function KhataPage() {
   // Main customer overview page
   return (
     <div className="flex-1 flex flex-col min-w-0 overflow-hidden bg-slate-50/50 dark:bg-[#0d0d0d] pb-16 lg:pb-0">
-      <div className="px-4 lg:px-8 py-4 lg:py-8">
-        <div className="flex items-center justify-between mb-6 lg:mb-8">
+      <div className="px-4 lg:px-8 py-4 lg:py-6 flex-1 flex flex-col overflow-hidden">
+        <div className="flex items-center justify-between mb-4 lg:mb-6">
           <div>
             <h1 className="text-xl lg:text-2xl font-bold text-slate-900 dark:text-[#e8e8e8] tracking-tight">Khata</h1>
             <p className="text-slate-500 dark:text-[#9ca3af] mt-1 text-sm lg:text-base hidden sm:block">Manage your customer accounts and transactions</p>
           </div>
-
+          
           <FullscreenToggle />
         </div>
 
         {/* Top Summary Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6 mb-6 lg:mb-8">
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:gap-4 mb-4 lg:mb-5">
           {/* Maine lene hain */}
-          <div className="bg-red-50/50 dark:bg-red-950/20 p-4 lg:p-6 rounded-xl border border-red-100/50 dark:border-red-900/20">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 bg-red-100/50 dark:bg-red-900/20 rounded-lg flex items-center justify-center">
-                <ArrowDown className="text-red-500 dark:text-red-400" size={20} />
+          <div className="bg-red-50/50 dark:bg-red-950/20 p-3 sm:p-4 lg:p-4 rounded-xl border border-red-100/50 dark:border-red-900/20">
+            <div className="flex items-center gap-2 sm:gap-3 mb-1.5 sm:mb-2 lg:mb-2">
+              <div className="w-8 h-8 sm:w-9 sm:h-9 lg:w-9 lg:h-9 bg-red-100/50 dark:bg-red-900/20 rounded-lg flex items-center justify-center shrink-0">
+                <ArrowDown className="text-red-500 dark:text-red-400 w-4 h-4 sm:w-5 sm:h-5 lg:w-5 lg:h-5" />
               </div>
-              <h3 className="text-base lg:text-lg font-semibold text-red-600 dark:text-red-400">Maine lene hain</h3>
+              <h3 className="text-sm sm:text-base lg:text-base font-semibold text-red-600 dark:text-red-400 leading-tight">Maine lene hain</h3>
             </div>
-            <p className="text-2xl lg:text-3xl font-bold text-red-600 dark:text-red-400">{formatCurrency(totalLene)}</p>
-            <p className="text-xs lg:text-sm text-red-500 dark:text-red-400/80 mt-1">Total amount to receive</p>
+            <p className="text-xl sm:text-2xl lg:text-2xl font-bold text-red-600 dark:text-red-400 truncate">{formatCurrency(totalLene)}</p>
+            <p className="text-[10px] sm:text-xs lg:text-xs text-red-500 dark:text-red-400/80 mt-1 truncate">Total amount to receive</p>
           </div>
 
           {/* Maine dene hain */}
-          <div className="bg-green-50/50 dark:bg-green-950/20 p-4 lg:p-6 rounded-xl border border-green-100/50 dark:border-green-900/20">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 bg-green-100/50 dark:bg-green-900/20 rounded-lg flex items-center justify-center">
-                <ArrowUp className="text-green-500 dark:text-green-400" size={20} />
+          <div className="bg-green-50/50 dark:bg-green-950/20 p-3 sm:p-4 lg:p-4 rounded-xl border border-green-100/50 dark:border-green-900/20">
+            <div className="flex items-center gap-2 sm:gap-3 mb-1.5 sm:mb-2 lg:mb-2">
+              <div className="w-8 h-8 sm:w-9 sm:h-9 lg:w-9 lg:h-9 bg-green-100/50 dark:bg-green-900/20 rounded-lg flex items-center justify-center shrink-0">
+                <ArrowUp className="text-green-500 dark:text-green-400 w-4 h-4 sm:w-5 sm:h-5 lg:w-5 lg:h-5" />
               </div>
-              <h3 className="text-base lg:text-lg font-semibold text-green-600 dark:text-green-400">Maine dene hain</h3>
+              <h3 className="text-sm sm:text-base lg:text-base font-semibold text-green-600 dark:text-green-400 leading-tight">Maine dene hain</h3>
             </div>
-            <p className="text-2xl lg:text-3xl font-bold text-green-600 dark:text-green-400">{formatCurrency(totalDene)}</p>
-            <p className="text-xs lg:text-sm text-green-500 dark:text-green-400/80 mt-1">Total amount to give</p>
+            <p className="text-xl sm:text-2xl lg:text-2xl font-bold text-green-600 dark:text-green-400 truncate">{formatCurrency(totalDene)}</p>
+            <p className="text-[10px] sm:text-xs lg:text-xs text-green-500 dark:text-green-400/80 mt-1 truncate">Total amount to give</p>
           </div>
         </div>
 
         {/* Search and Add Customer */}
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 lg:gap-4 mb-6">
-          <div className="relative flex-1 max-w-full sm:max-w-md">
+        <div className="flex items-center gap-2 lg:gap-3 mb-4 lg:mb-5">
+          <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500" size={18} />
             <input
               type="text"
@@ -593,44 +592,43 @@ export function KhataPage() {
             />
           </div>
 
-          <div className="flex gap-2 lg:gap-3">
-            {selectedCustomers.length > 0 && (
-              <button
-                onClick={() => {
-                  setDeleteCustomerIds(selectedCustomers);
-                  setIsDeleteModalOpen(true);
-                }}
-                className="px-3 lg:px-4 py-2.5 bg-red-500 dark:bg-red-600 text-white rounded-lg font-medium hover:bg-red-600 dark:hover:bg-red-700 transition-colors flex items-center gap-2 text-sm"
-              >
-                <Trash2 size={16} />
-                <span className="hidden sm:inline">Delete ({selectedCustomers.length})</span>
-                <span className="sm:hidden">({selectedCustomers.length})</span>
-              </button>
-            )}
+          {selectedCustomers.length > 0 && (
             <button
-              onClick={() => setIsAddCustomerModalOpen(true)}
-              className="px-4 lg:px-6 py-2.5 bg-blue-600 dark:bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 dark:hover:bg-blue-700 transition-colors flex items-center gap-2 shadow-lg shadow-blue-200 dark:shadow-blue-900/30 text-sm lg:text-base"
+              onClick={() => {
+                setDeleteCustomerIds(selectedCustomers);
+                setIsDeleteModalOpen(true);
+              }}
+              className="px-3 lg:px-4 py-2.5 bg-red-500 dark:bg-red-600 text-white rounded-lg font-medium hover:bg-red-600 dark:hover:bg-red-700 transition-colors flex items-center gap-2 text-sm shrink-0"
             >
-              <Plus size={18} />
-              <span className="hidden sm:inline">Add Customer</span>
-              <span className="sm:hidden">Add</span>
+              <Trash2 size={16} />
+              <span className="hidden sm:inline">Delete ({selectedCustomers.length})</span>
+              <span className="sm:hidden">({selectedCustomers.length})</span>
             </button>
-          </div>
+          )}
+          
+          <button
+            onClick={() => setIsAddCustomerModalOpen(true)}
+            className="px-3 lg:px-6 py-2.5 bg-blue-600 dark:bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 dark:hover:bg-blue-700 transition-colors flex items-center gap-2 shadow-lg shadow-blue-200 dark:shadow-blue-900/30 text-sm lg:text-base shrink-0"
+          >
+            <Plus size={18} />
+            <span className="hidden sm:inline">Add Customer</span>
+            <span className="sm:hidden">Add</span>
+          </button>
         </div>
 
         {/* Customer Cards Grid or Empty State */}
         {filteredCustomers.length === 0 ? (
-          <div className="bg-white dark:bg-[#1a1a1a] rounded-xl border border-slate-200 dark:border-[#2d2d2d] p-12 lg:p-20 flex flex-col items-center justify-center text-center">
-            <div className="w-20 lg:w-24 h-20 lg:h-24 bg-slate-50 dark:bg-[#2a2a2a] rounded-full flex items-center justify-center mb-4 lg:mb-6">
-              <FileText className="text-slate-300 dark:text-slate-600" size={40} />
+          <div className="bg-white dark:bg-[#1a1a1a] rounded-xl border border-slate-200 dark:border-[#2d2d2d] p-8 lg:p-20 flex flex-col items-center justify-center text-center flex-1">
+            <div className="w-16 lg:w-24 h-16 lg:h-24 bg-slate-50 dark:bg-[#2a2a2a] rounded-full flex items-center justify-center mb-4 lg:mb-6">
+              <FileText className="text-slate-300 dark:text-slate-600" size={32} />
             </div>
-            <h3 className="text-lg lg:text-xl font-semibold text-slate-700 dark:text-[#e8e8e8] mb-2">No Customers Yet</h3>
+            <h3 className="text-base lg:text-xl font-semibold text-slate-700 dark:text-[#e8e8e8] mb-2">No Customers Yet</h3>
             <p className="text-sm lg:text-base text-slate-500 dark:text-[#9ca3af] max-w-md mb-4 lg:mb-6">
               Start by adding your first customer to keep track of transactions
             </p>
             <button
               onClick={() => setIsAddCustomerModalOpen(true)}
-              className="px-5 lg:px-6 py-2.5 lg:py-3 bg-blue-600 dark:bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 dark:hover:bg-blue-700 transition-colors flex items-center gap-2 shadow-lg shadow-blue-200 dark:shadow-blue-900/30 text-sm lg:text-base"
+              className="px-4 lg:px-6 py-2 lg:py-3 bg-blue-600 dark:bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 dark:hover:bg-blue-700 transition-colors flex items-center gap-2 shadow-lg shadow-blue-200 dark:shadow-blue-900/30 text-sm lg:text-base"
             >
               <Plus size={18} />
               Add Your First Customer
@@ -638,13 +636,13 @@ export function KhataPage() {
           </div>
         ) : (
           <>
-            {/* Scrollable Customer Cards Container */}
-            <div className="h-[calc(100vh-420px)] lg:h-[calc(100vh-380px)] overflow-y-scroll overflow-x-hidden pr-1">
+            {/* Scrollable Customer Cards Container - Fill remaining space */}
+            <div className="flex-1 overflow-y-auto overflow-x-hidden -mx-1 px-1 min-h-0">
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-3 lg:gap-4">
                 {paginatedCustomers.map((customer) => (
                   <div
                     key={customer.id}
-                    className="bg-white dark:bg-[#1a1a1a] p-3 lg:p-4 rounded-xl border border-slate-200 dark:border-[#2d2d2d] hover:shadow-lg dark:hover:shadow-slate-900/50 transition-all cursor-pointer relative group"
+                    className="bg-white dark:bg-[#1a1a1a] p-3 lg:p-4 rounded-xl border border-slate-200 dark:border-[#2d2d2d] hover:shadow-lg dark:hover:shadow-slate-900/50 transition-all cursor-pointer relative group flex flex-col h-[140px] lg:h-[160px]"
                   >
                     {/* Selection checkbox - minimal white */}
                     <div 
@@ -657,7 +655,7 @@ export function KhataPage() {
                       />
                     </div>
 
-                    <div onClick={() => handleCustomerClick(customer)} className="flex flex-col items-center text-center pt-2">
+                    <div onClick={() => handleCustomerClick(customer)} className="flex flex-col items-center text-center flex-1 justify-center">
                       {/* Avatar - Minimal light gray */}
                       <div className="w-12 h-12 lg:w-16 lg:h-16 rounded-full flex items-center justify-center text-slate-600 dark:text-[#9ca3af] font-bold text-base lg:text-lg mb-2 lg:mb-3 bg-slate-200/50 dark:bg-[#2a2a2a]">
                         {getInitials(customer.name)}
